@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaliter</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="shortcut icon" href="../../logo/logo_pc.ico" />
+ </head>
+<body>
+    <nav>
+        <ul>
+            <li >
+                <a href="../../index.html">
+                    
+                    <i class="icon-Accueil"><!--<img src="Image_de_font/home2.png" height="15px">--></i>
+                    <h4>Accueil</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../personaliter.html">
+                    <i class="icon-Personaliter"></i>
+                    <h4>Personaliter</h4>
+                </a>   
+            </li>
+            <li>
+                <a href="../lexique.html">
+                    <i class="icon-Lexique"></i>
+                    <h4>Lexique</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../html_css.html">
+                    <i class="icon-HTML_CSS"></i>
+                    <h4>HTML_CSS</h4>
+                </a>
+            </li>
+            <li>
+                <a href="../Molines_Corentin.html">
+                    <i class="icon-Réalisateur"></i>
+                    <h4>Réalisateur</h4>
+                </a>
+            </li>
+        </ul>
+      </nav>
+        
+        
+        <div class="container">
+            <div id="flex">
+                <div class="menu-icon"><span></span></div>
+                <div class="coté-menu" id="music-player"> Compilateur C </div>
+                
+                
+
+                <div class="q_menu">
+                    <div id="qtr"><B>But :</B></div>
+                    <div id="qts">Testé le langage c que Dennis Ritchie a créé.</div>   
+                </div>
+            </div>
+            <div class="page">
+                <br>
+                <iframe src="cmp-C.html" height="800" width="1860"></iframe>
+            </div>
+        </div>
+
+        <audio id="music" src="../../musique/Stuck Inside.mp3"></audio>
+        <script>var music = document.getElementById("music"); var musicPlayer = document.getElementById("music-player"); musicPlayer.addEventListener("click", function() {if (music.paused) {music.play();} else {music.pause();}});</script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="../../js/index.js"></script>
+        <script>music.volume=0.1;</script> 
+</body>
+</html>

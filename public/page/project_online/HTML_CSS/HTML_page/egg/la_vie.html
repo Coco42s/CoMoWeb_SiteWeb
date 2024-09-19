@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS Isometric Pokemon</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style type="text/css">
+    #commande{
+       width: 500px;
+       height: 40px; 
+       margin-left: 20px;
+       font-family: Arial;
+       font-weight: bold;
+       font-size: 10pt;}
+
+    #canv{
+        width: 480px;
+        height: 480px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 5px;
+        float: left;}
+    
+    input[type=range] {
+        -webkit-appearance: none;
+        display: inline-block;
+        background-color: silver;
+        width: 100px;
+        height:5px;}
+     
+    #bl1 {
+        display: inline-block;
+        margin-left: 10px;
+        width: 100px;}
+     
+    #vA {
+        display: inline-block;
+        margin-bottom: 5px;
+        margin-left:35px;
+        width: 100px;}
+    
+    #bt1{
+        width: 70px;
+		height:25px;
+		background-color:palegreen;
+        margin-right: 30px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 10pt;}
+    
+    #liste{ 
+        background-color: yellow;
+        width: 100px;
+        height: 25px;
+        margin-right: 30px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 10pt;}
+    
+    #liste2{ 
+        background-color: yellow;
+        width: 100px;
+        margin-left: 30px;
+        height: 25px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 10pt;}
+    #content {
+        margin-left: 35%;
+        margin-top: 8%;
+    }
+ </style>    
+</head>
+<body>
+  <nav>
+    <ul>
+        <li >
+            <a href="../../index.html">
+                
+                <i class="icon-Accueil"><!--<img src="Image_de_font/home2.png" height="15px">--></i>
+                <h4>Accueil</h4>
+            </a>
+        </li>
+        <li>
+            <a href="../personaliter.html">
+                <i class="icon-Personaliter"></i>
+                <h4>Personaliter</h4>
+            </a>   
+        </li>
+        <li>
+            <a href="../lexique.html">
+                <i class="icon-Lexique"></i>
+                <h4>Lexique</h4>
+            </a>
+        </li>
+        <li>
+            <a href="../html_css.html">
+                <i class="icon-HTML_CSS"></i>
+                <h4>HTML_CSS</h4>
+            </a>
+        </li>
+        <li>
+            <a href="../Molines_Corentin.html">
+                <i class="icon-Réalisateur"></i>
+                <h4>Réalisateur</h4>
+            </a>
+        </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div id="flex">
+      <div class="menu-icon"><span></span></div>
+      <div class="coté-menu" id="music-player"> Jeux de La vie </div>
+      
+      <div class="q_menu">
+          <div id="qtr"><B>But :</B></div>
+          <div id="qts">Emuler le comportement des cellule</div>   
+      </div>
+  </div>
+  
+  <div id="conteneur">
+    <div id="contenu">
+        
+        <div id="content" >	
+        <!-- InstanceBeginEditable name="recre_content" -->
+            <div style="background-image:url(images/ivoire.gif)" >
+            
+            <p>
+            <div id="commande">
+                <select id="liste" name="liste" >
+                    <option value=0>Aléatoire</option>
+                    <option value=1>Utilisateur</option>
+                    <option value=3>Stable</option>
+                    <option value=4>Glisseur 1</option>
+                    <option value=5>Glisseur 2</option>
+                    <option value=6>Glisseur 3</option>
+                    <option value=7>Oscillant 1</option>
+                    <option value=8>Oscillant 2</option>
+                    <option value=9>Ligne</option>
+                    <option value=10>Moulin</option>
+                    <option value=11>Canon</option>
+                </select>
+                <input type="button" id="bt1" value="Départ" onClick="depart(this)"/>
+                <div id="bl1"> 
+                    <label id ="vA">Vitesse</label>
+                    <input type="range" id="valA" min="60" max="1500" step="1" value="250"/>                    
+                </div>
+                <select id="liste2" name="liste" >
+                    <option value=20>20x20 400</option>
+                    <option value=25>25x 25 625</option>
+                    <option value=30>30x30 900</option>
+                    <option value=35>35x35 1225</option>
+                    <option value=40>40x40 1600</option>
+                    
+                </select>
+            </div>
+                    
+            <div id="canv">                                     
+                <canvas id="canvas" width="480" height="480"></canvas>
+            </div>		  
+            <script type="text/javascript">
+            // N°631 03/04/2018***********************************************************************
+                    var fenetre = document.getElementById('canvas'); 
+                    var hh=canvas.getContext('2d');
+                    hh.canvas.style.border="3px solid #000";
+                    hh.translate(0.5,0.5);
+                    var choice = document.getElementById("liste");
+                    var choice2 = document.getElementById("liste2");
+                    var Ainput = document.getElementById("valA");
+                    var anim=250,timer;
+                    const CASE="rgb(180,180,0)";
+                    var VIVE="yellow",FOND="green";	
+                    var tn=[],ta=[],manuel=false;	//nouveau, ancien
+                    var ctg=0,max=19,n=max+1,ncase=n*n;
+                    var dx,dy,nbviv,xi,yi,xf,yf,xs,ys;
+                    var mode=0,vifs,longlg;
+                    var ti1=[2,2,2,1,0,11,10,12,10,13,11,12,10,13,11,13,12];
+                    var tj1=[6,7,8,8,7, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9];
+                    var ti2=[ 0, 0, 1, 1, 2, 2,10,10,11,11,12,12,13,13,13,14,14,15,
+                            6, 7, 7, 8, 8, 9,16,17,17,16,16,17,14,15,15,16,16,17,17];
+                    var tj2=[12,13,11,13,11,12, 2, 3, 1, 4, 1, 4, 2, 3, 9, 8,10, 9,
+                            16,15,17,14,16,15, 2, 2, 3, 4, 5, 5,16,15,17,14,16,15,14];							
+                    var ti3=[0,0,1,1,2,1,4,5,6,9,9,10,10,0,0,1,2,2,1,4,5,6,7,7,5,6];
+                    var tj3=[1,2,0,0,1,2,9,9,9,8,9, 8, 9,6,7,5,6,7,8,4,3,2,3,4,5,5];							
+                    var ti5=[7,8,8,8,8,8,7,6,5],tj5=[2,3,4,5,6,7,7,7,6];
+                    var ti6=[7,8,8,8,8,8,8,7,6,5],tj6=[3,4,5,6,7,8,9,9,9,8];
+                    var ti7=[7,7,7,8,8,8,9,9,9,10,10,10,11,11,11,12,12,12,2,2,2,16,17,18,15,15,15,16,16,16];
+                    var tj7=[7,8,9,7,8,9,7,8,9,10,11,12,10,11,12,10,11,12,1,2,3,17,17,17,3, 4, 5, 4, 5, 6];
+                    var ti8=[4,4,4,6,6,7,7,8,8,9,9,9];//ligne
+                    var tj8=[6,7,8,4,9,4,9,4,9,6,7,8];//colonne	
+                    var ti9=[5,5,5,5,5,5 ,6,6,6,6,6,6, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10,10,
+                            12,12,12,12,12,12,13,13,13,13,13,13,8,8,9,9,10,10,11,11,12,12,13,13];
+                    var tj9=[5,6,7,8,9,10,5,6,7,8,9,10,12,13,12,13,12,13,12,13,12,13,12,13,
+                            8,9,10,11,12,13,8,9,10,11,12,13,5,6,5,6,5,6,5,6,5,6,5,6];            
+                    var ti0=[20,19,19,19,18,18,17,16,16,15,15,14,14,13,13,13,4,3,
+                            4,3,25,24,23,24,23,24,23,25,27,27,27,27,37,38,37,38];
+                    var tj0=[10,9,10,11,8,12,10,7,13,7,13,8,12,9,11,10,10,10,
+                            9,9,10,9,9,8,8,7,7,6,10,11,5,6,8,8,7,7];
+                    var Xs,Ys;
+                    maj(mode);
+                    trace();
+                                
+            // commandes ***********************
+                    Ainput.addEventListener('mouseup', function() {
+                        anim=1560-parseInt(document.getElementById('valA').value);
+                        stop();
+                        depart();});
+                    
+                    choice.addEventListener('click', function() {
+                        stop();
+                        mode=parseInt(choice.options[choice.selectedIndex].index);	//indice
+                        if (mode===1) manuel=true; 
+                        maj(mode);	
+                        trace();});
+                    
+                    choice2.addEventListener('change', function() {
+                        stop();
+                        n=parseInt(choice2.options[choice2.selectedIndex].value);	//indice
+                        max=n-1;	ncase=n*n;
+                        maj(mode);
+                        trace();});
+                    
+                    function stop(){
+                        bt1.value="Départ";
+                        clearInterval(timer);}
+                
+                function depart() {						
+                        if (bt1.value==='Départ'){
+                            bt1.value="Stop";
+                            if (manuel){
+                                manuel=false;}
+                            timer=setInterval(trace,anim);}
+                        else{
+                            stop();}}
+                    
+                    
+            //**********************************************************        
+                fenetre.addEventListener("mousedown",function(e) {
+                        var cRect = canvas.getBoundingClientRect();     
+                        var x = Math.round(e.clientX - cRect.left);
+                        var y = Math.round(e.clientY - cRect.top); 
+                        Xs=x-3;		Ys=y-3; 
+                        if ((manuel) && (xi<=Xs) && (Xs<=xf) && (yi<=Ys) && (Ys<=yf)){
+                            var j=Math.floor((Xs-xi)/dx),i=Math.floor((Ys-yi)/dy);
+                            if (i<0) i=0; else if (i>max) i=max;
+                            if (j<0) j=0; else if (j>max) j=max;                
+                            tn[i][j]=!tn[i][j];
+                            trace();}
+                        });
+                            
+            // Utilitaires  ******************************************
+                    function drawLine(xi,yi,xf,yf){
+                        hh.beginPath();
+                        hh.moveTo(xi,yi);
+                        hh.lineTo(xf,yf);
+                        hh.stroke();}
+                    
+                    function cadre3D(x,y,w,ha){
+                        hh.strokeStyle="rgb(130,130,130)";  
+                        drawLine(x,y+1,w-1,y+1);	drawLine(x,y,x,ha);
+                        drawLine(x+1,y,x+1,ha-1);   drawLine(x,y,w,y);
+                        hh.strokeStyle="rgb(230,230,230)";  		
+                        drawLine(x,ha,w,ha);	drawLine(w,y+1,w,ha);
+                        drawLine(x+1,ha-1,w,ha-1);	drawLine(w-1,y+2,w-1,ha);}       
+
+            //******************************************************** 
+                    function newgene(i,j){
+                        nbviv=etat(i-1,j-1) + etat(i,j-1) + etat(i+1,j-1) + 
+                        etat(i-1,j)  + etat(i+1,j) +
+                        etat(i-1,j+1) + etat(i,j+1) + etat(i+1,j+1);
+                        if (!ta[i][j]) tn[i][j]=(nbviv===3); 
+                        else tn[i][j]=((1<nbviv) && (nbviv<4));}
+                
+                function etat(i,j){
+                        if (i<0) i=max; else if (i>max) i=0;
+                        if (j<0) j=max; else if (j>max) j=0;
+                        return (ta[i][j])?1:0;}    
+                
+                    function maj(mod){
+                        var i,j,k;
+                        if (mod>2){
+                    document.getElementById('liste2').disabled=true;
+                            choice2.selectedIndex=0;
+                            n=20;	max=19;	ncase=400;}
+                        else document.getElementById('liste2').disabled=false;
+                        if (mod===10){
+                    document.getElementById('liste2').disabled=true;
+                            choice2.selectedIndex=4;
+                            n=40;	max=39;	ncase=1600;}
+                        ctg=-1;
+                        for (i=0; i<n;  i++ ){
+                            tn[i]=[n];	ta[i]=[n];}
+                        dx=Math.floor(384/n);
+                        dy=Math.floor(384/n);
+                        xi=Math.floor(0.5*(480-n*dx+1));
+                        yi=Math.floor(0.5*(480-n*dy+1));
+                        xf=xi+n*dx;    yf=yi+n*dy;    ys=yi-7;
+                        for (i=0; i<n; ++i){
+                    for (j=0 ; j<n ; ++j)
+                                ta[i][j]=tn[i][j]=false;}
+                        switch (mod){
+                        case 0: for (i=0; i<n; ++i){
+                        for (j=0; j<n; ++j)
+                                        tn[i][j]=(Math.random()<0.5);
+                                        ta[i][j]=tn[i][j];}
+                                break;
+                        case 2: for (k=0; k<37; k++){		//stables
+                                    ta[ti2[k]][tj2[k]]=true;
+                                    tn[ti2[k]][tj2[k]]=true;}
+                                for (k=0; k<26; k++){		
+                                    ta[ti3[k]][tj3[k]]=true;
+                                    tn[ti3[k]][tj3[k]]=true;}
+                                break;
+                        case 3: for (k=0; k<17; k++){		//glisseur 1
+                                    ta[ti1[k]][tj1[k]]=true;
+                                    tn[ti1[k]][tj1[k]]=true;}
+                                break;	
+                        case 4: for (k=0; k<9; k++){		//glisseur 2
+                                    ta[ti5[k]][tj5[k]]=true;
+                                    tn[ti5[k]][tj5[k]]=true;}
+                                break;
+                        case 5: for (k=0; k<10; k++){		//glisseur 3
+                                    ta[ti6[k]][tj6[k]]=true;
+                                    tn[ti6[k]][tj6[k]]=true;}
+                                break;
+                        case 6: for (k=0; k<30; k++){		//oscillateur P8
+                                    ta[ti7[k]][tj7[k]]=true;
+                                    tn[ti7[k]][tj7[k]]=true;}
+                                break;
+                        case 7: for (k=0; k<12; k++){		//oscillateur P3
+                                    ta[ti8[k]][tj8[k]]=true;
+                                    tn[ti8[k]][tj8[k]]=true;
+                                    ta[ti8[k]][20-tj8[k]]=true;
+                                    tn[ti8[k]][20-tj8[k]]=true;
+                                    ta[20-ti8[k]][tj8[k]]=true;
+                                    tn[20-ti8[k]][tj8[k]]=true;
+                                    ta[20-ti8[k]][20-tj8[k]]=true;
+                                    tn[20-ti8[k]][20-tj8[k]]=true;}
+                                break;
+                        case 8: longlg=3+Math.floor(Math.random()*10);
+                                j=10-Math.floor(longlg/2);  
+                                for (k=j; k<j+longlg; k++){	//lignes
+                                    ta[10][k]=true;
+                                    tn[10][k]=true;}
+                                break;
+                        case 9: for (k=0; k<48; k++){	//moulin
+                                    ta[ti9[k]][tj9[k]]=true;
+                                    tn[ti9[k]][tj9[k]]=true;}
+                                    break;
+                        case 10: for (k=0; k<36; k++){	//canon
+                                    ta[tj0[k]][ti0[k]]=true;
+                                    tn[tj0[k]][ti0[k]]=true;  }}}
+                        
+                    function trace(){
+                        hh.font="bold 12px Arial";
+                        hh.fillStyle="silver";      hh.fillRect(0,0,480,480);
+                        hh.lineWidth=1;            
+                        hh.fillStyle="black";
+                        var i,j,x,y=yi,fini=true;
+                        if (!manuel) ctg++;
+                        hh.fillStyle=FOND;	 hh.fillRect(30,40,420,400);
+                        vifs=0;
+                        for (i=0; i<n; ++i,y+=dy) {
+                        x=xi;
+                        for (j=0; j<n; ++j,x+=dx) {
+                        if (ta[i][j]!==tn[i][j]) fini=false;
+                            ta[i][j]=tn[i][j];
+                            if (tn[i][j]) {
+                                hh.fillStyle=VIVE;
+                                hh.fillRect(x,y,dx,dy);	++vifs;}}}
+                        y=yi;	x=xi;
+                        hh.fillStyle="black";
+                        hh.fillText("Génération",30,18);	hh.fillText("Population",120,18); 
+                        hh.fillStyle="red";
+                        hh.fillText(""+ctg,60,34);	hh.fillText(""+vifs,150,34);
+                        if (mode===8) hh.fillText("Ligne de "+longlg+" cases",210,32);		
+                        hh.strokeStyle=CASE;	
+                        for (i=0; i<=n; ++i,y+=dy) drawLine(xi,y,xf,y);
+                        for (i=0; i<=n; ++i,x+=dx) drawLine(x,yi,x,yf);
+                        if(!manuel){
+                            for(i=0; i<n; ++i){
+                                for (j=0; j<n; ++j) newgene(i,j);}}        
+                        if ((vifs===0) || (fini)) stop();
+                        hh.lineWidth=1; 
+                        cadre3D(30,40,450,440);} 
+            </script>                          
+        </div>
+        <!-- InstanceEndEditable -->
+      </div>		
+    </div>
+</div>
+
+    
+
+
+
+    <audio id="music" src="../../musique/Stuck Inside.mp3"></audio>
+    <script>var music = document.getElementById("music"); var musicPlayer = document.getElementById("music-player"); musicPlayer.addEventListener("click", function() {if (music.paused) {music.play();} else {music.pause();}});</script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../../js/index.js"></script>
+    <script>music.volume=0.1;</script> 
+</body>
+</html>

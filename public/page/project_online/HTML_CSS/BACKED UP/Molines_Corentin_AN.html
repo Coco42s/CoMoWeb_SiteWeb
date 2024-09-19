@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaliter</title>
+    <!--<link rel="stylesheet" href="../style.css">-->
+    <link rel="shortcut icon" href="../logo/logo_pc.ico" />
+    <style>
+        body {
+            background-color:antiquewhite
+        }
+        :root{
+            --hauteur-menu: 60px;
+        }
+        
+        nav ul{
+            margin: 0px;
+            padding: 0px;
+            font-family: Montserrat, sans-serif;
+        }
+        
+        nav{
+            width: 100%;
+            font-size: 18px;
+            /*position: sticky;*/
+            top: 0;
+        }
+        
+        nav > ul {
+            display: flex;
+            text-align: center;
+            /*box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);*/
+            height: var(--hauteur-menu);
+          }
+           
+        nav ul {
+            list-style-type: none;
+        }
+          
+          nav > ul > li {
+            background-color: white;
+            position: relative;
+            height: 100%;
+            flex: 1;
+        }
+        
+        nav > ul > li > a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        li a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .menu-deroulant > a:after{
+            content: '❯';
+            font-size: 15px;
+            margin-left: 7px;
+            display: inline-block;
+        }
+        
+        nav > ul > li > a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+          
+        li a {
+            text-decoration: none;
+            color: black;
+        }
+          
+        .menu-deroulant > a:after{
+            content: '❯';
+            font-size: 15px;
+            margin-left: 7px;
+            display: inline-block;
+        }
+        
+        .sous-menu {
+            margin-top: var(--hauteur-menu);
+            width: 100%;
+            text-align: left;
+            background-color: rgb(255, 255, 255);
+            border-radius: 2px;
+            overflow: hidden;
+            max-height: 0;
+        }
+          
+        .sous-menu > li > a {
+            height: 50px;
+            padding-left: 20px;
+            width: 100%;
+            align-items: center;
+            display: flex;
+        }
+        
+        nav > ul > li:hover > a{
+            color: #2169EC;
+        }
+        
+        .sous-menu > li:hover {
+            background-color: rgba(33, 105, 236, 0.3);
+        }
+          
+        .sous-menu > li:hover > a {
+            color: rgb(255, 255, 255);
+        }
+        
+        @keyframes rotationFleche {
+            0% {
+              transform: rotate(0deg);
+            }
+            100%{
+              transform: rotate(90deg);
+            }
+        }
+        
+        .menu-deroulant:hover > a:after{
+            animation: rotationFleche 0.2s linear forwards;
+        }
+        
+        @keyframes apparitionSousMenu {
+            0% {
+              box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
+              border-top: 3px solid #2169EC;
+            }
+            30% {
+              box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+            }
+            100% {
+              max-height: 50em;
+              border-top: 3px solid #2169EC;
+              box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+            }
+        }
+        
+        .menu-deroulant:hover > .sous-menu {
+            animation: apparitionSousMenu 1s forwards;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="menu-deroulant">
+                <a href="#">Exercice</a>
+                <ul class="sous-menu">
+                    <li><a href="personaliter.html">Personaliter</a></li>
+                    <li><a href="lexique.html">Lexique</a></li>
+                    <li><a href="html_css.html">HTML_CSS</a></li>
+                </ul>
+            </li>
+            <li class="menu-deroulant">
+                <a href="#">Réalisations</a>
+                <ul class="sous-menu">
+                    <li><a href="Molines_Corentin.html">Molines Corentin</a></li>
+                </ul>
+            </li>
+                <li><a href="#"><img src="../Image_de_font/-keyboard-arrow-up_90748.png" width="50" height="50" ></a></li>
+                <li><a href="../index.html"><img src="../image_de_font/home2.png" width="50" height="50"></a></li>
+        </ul>
+    </nav>
+    <br>
+    <iframe src="../World/Molines Corentin CV.html" width="100%" height="915"></iframe>
+</body>
+</html>

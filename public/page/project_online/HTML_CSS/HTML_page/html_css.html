@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML_CSS</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>body{margin:20px;}</style>
+    <link rel="shortcut icon" href="../logo/logo_pc.ico" />
+    <style>.container {background-image:url(../Image_de_font/Tableaux\ a\ craie.jpg);width: 100%;height: auto;margin: 0 auto;-moz-transition: all 0.3s ease 0.6s;-o-transition: all 0.3s ease 0.6s;-webkit-transition: all 0.3s ease;-webkit-transition-delay: 0.6s;-webkit-transition: all 0.3s ease 0.6s;transition: all 0.3s ease 0.6s;z-index: 10;padding: 2em;position: relative;}</style>
+</head>
+<body>
+<!--La Nav-->
+<nav>
+    <ul>
+        <li >
+            <a href="../index.html">
+                <i class="icon-Accueil"></i>
+                <h4>Accueil</h4>
+            </a>
+        </li>
+        <li>
+            <a href="personaliter.html">
+                <i class="icon-Personaliter"></i>
+                <h4>Personnalité</h4>
+            </a>   
+        </li>
+        <li>
+            <a href="lexique.html">
+                <i class="icon-Lexique"></i>
+                <h4>Lexique</h4>
+            </a>
+        </li>
+        <li>
+            <a href="html_css.html">
+                <i class="icon-HTML_CSS"></i>
+                <h4>HTML_CSS</h4>
+            </a>
+        </li>
+        <li>
+            <a href="Molines_Corentin.html">
+                <i class="icon-Réalisateur"></i>
+                <h4>Réalisateur</h4>
+            </a>
+        </li>
+    </ul>
+    </nav>
+
+    <div class="container">
+        <div id="flex">
+            <div class="menu-icon"><span></span></div>
+            <div class="coté-menu" id="music-player">HTML CSS</div>
+            
+            <div class="q_menu">
+                <div id="qtr"><B>Rappel de la question :</B></div>
+                <div id="qts">Dire ce que vous avez appris des balises html et les astuces concernant le css. On introduira un tableau dans un élément table (une recherche à faire).</div>   
+            </div>
+        </div>
+
+    <div class="page">
+        <div>
+            <br>
+            <table class="titre">
+                <tr> <td width="213"></td> <td width="213"></td> <td width="213"></td> <td width="163"></td> <td width="330"><h1 id="p_T-D">HTML et le CSS</h1></td> <td width="163"></td> <td width="190"></td> <td width="213"><img src="../Image_de_font/HTML5.png" height="80" width="80"></td> <td width="213"><img src="../Image_de_font/CSS3.png" width="55" height="80"></td> </tr>                                                                                                                                                                                                                                                                                                                                                      
+            </table>
+        </div>
+        
+    <!--La Page-->
+        <!--HTML--> 
+        
+        <p><h3>Le HTML (HyperText Markup Language)</h3>
+            Le HTML est un langage de balises utilisé pour les pages Web. Voici ce que j'ai compris :<br>
+            <br>
+            Pour commencer, chaque balise a une catégorie (ex : < div > = block ; < p > = paragraph ; table = un tableau ;...)<br>
+            Ensuite, on peut rajouter des éléments à cette balise pour la définir ou lui donner des ordres : (ex : < div id="Sa_défini"> ; < img src="une image" height="sa hauteur"> ;...)<br>
+            Il faut toujours fermer les balises dans l'ordre : < A > < B > < /B > < /A > et non < A > < B >< /A > < /B >
+        </p>
+
+        <!--CSS-->
+        
+        <p><h3>Le CSS (Cascading Style Sheets)</h3>
+            Le Css permet de rajouter le style de la page (sa charte graphique), de la couleur, des formes et même des animations.<br>
+            <br>
+            <h4>Quelque astuces pour le css :</h4>
+            <ol>
+                <li>
+                    Les class et les id (on parlera de la class mais cela vaut pour l'id):
+                    <ul>
+                        <li>On peut appliquer du code que a un ou plusieurs éléments d'une classe ou d'une id. Nous avons plusieurs façon de le faire :</li>
+                        <ol>
+                            <li>La manière la plus simple est de mettre la classe dans le HTML puis de mettre le nom d'un élément comme par exemple :<br>
+                               .class p{~~~~} <br>
+                                Ceci s'applique à toutes les éléments qui ont < p > comme parent ou grand-parents etc.
+                            </li>
+                            <li>
+                                La seconde manière permet de definir particulièrement ce qu'on vise, on va lui demander de respecter des conditions bien précises :<br>
+                               .class div p {~~~~} <br>
+                                Ici on demande de modifier le style de toutes les balises < p > qui sont elles-mêmes dans une balies < div >. Si on rajoute un < h1 > derrière le < p > dans la commande css, on lui demandera cette fois de modifier le style de tout les < h1 > qui se trouvent dans une balise < div > et < p >.
+                            </li>
+                            <li>La troisième et dernière méthode est d'utiliser une virgule entre des éléments, pour leur attribuer le même style :
+                               .class div, p {~~~~} <br>
+                                Ici nous changeont tous les < p > et les < div > qui appartiennent à la classe .class. C'est-à-dire si la classe .class apparait dans leur hiérarchie, ils hériteront ce style.
+                            </li>
+                        </ol>
+                        <li>
+                            Les appels : 
+                            <ul>
+                                <li>On appelle une class avec un point '.' puis le nom de la class :<br>
+                                   .class {~~~~}
+                                </li>
+                                <li>On appelle une class avec un # puis le nom de l'id :<br>
+                                    #id {~~~~}
+                                </li>
+                                <li>
+                                    Nous avons aussi un appel généralisé qui définit des styles pour tout les éléments avec le symbole * :<br>
+                                    * {~~~~}
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Dans le HTML : 
+                            <ul>
+                                <li>On définit une classe avec le mot "class" puis le nom de la class :<br>
+                                    class="nom_de_la_class"
+                                </li>
+                                <li>On définie une class avec le mot id puis le nom de la l'id :<br>
+                                    id="nom_de_id"
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>Mettre des éléments alignés : 
+                    <ul>
+                        <li>Il suffit de mettre display: "flex" dans la div où vous voulez que les éléments soient alignés.</li>
+                    </ul>
+                </li>
+            </ol>
+        </p>
+
+        <p><h4>Voici quelques notions de css utilisées :</h4></p>
+        <div class="les_tableux">
+            <table class="les_tableux">
+    
+                <!-- <caption>CSS</caption> -->
+            
+            <tr class="les_tableux"> 
+                <th>Notions</th> 
+                <th>Syntaxe</th> 
+                <th>Signification</th> 
+                <th>Paramètres</th> 
+            </tr>
+            
+            <tr class="les_tableux"> 
+                <td class="les_tableux" width="480">color</td> 
+                <td class="les_tableux" width="480">color : ~~ ;</td> 
+                <td class="les_tableux" width="480">La propriété color en CSS définit la valeur de la couleur de premier plan du texte, des décorations de texte d'un élément et la currentcolor valeur. currentcolor peut être utilisé comme valeur indirecte sur d'autres propriétés et est la valeur par défaut pour d'autres propriétés de couleur, telles que border-color.</td> 
+                <td class="les_tableux" width="480">color prend comme valeurs : rgb, hexadécimal, lettre, hsl, hsla, hwb.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">linear-gradient()</td> 
+                <td class="les_tableux">background: linear-gradient( ~~, ~~);</td> 
+                <td class="les_tableux">La fonction linear-gradient() en CSS crée une image consistant en une transition progressive entre deux ou plusieurs couleurs le long d'une ligne droite. Son résultat est un objet du type de données, qui est un type spécial de.< gradient >< image ></td> 
+                <td class="les_tableux">linear-gradient() prend : rgb, hexadécimal, lettre, hsl, hsla, hwb.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">background-color</td> 
+                <td class="les_tableux">background-color : ~~;</td> 
+                <td class="les_tableux">La propriété background-color en CSS définit la couleur de fond d'un élément.</td> 
+                <td class="les_tableux">background-color prend : rgb, hexadécimal, lettre, hsl, hsla, hwb.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">background-image</td> 
+                <td class="les_tableux">background-image : url("~~");<br>ou<br>background-image : url("~~"),<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;url("~~");<br>ou<br>background-image: linear-gradient( ~~, ~~),<br>&emsp;&ensp;url("~~");</td> 
+                <td class="les_tableux">La propriété background-image en CSS définit une ou plusieurs images d'arrière-plan sur un élément.</td> 
+                <td class="les_tableux">background-image prend : le lien vers une image ((../) retour d'un dossier).</td> 
+            </tr>
+            
+            <tr class="les_tableux"> 
+                <td class="les_tableux">float</td> 
+                <td class="les_tableux">float : ~~ ;</td> 
+                <td class="les_tableux">La propriété float en CSS place un élément sur le côté gauche ou droit de son conteneur, permettant au texte et aux éléments en ligne de s'enrouler autour de lui. L'élément est retiré du flux normal de la page, tout en restant une partie du flux (contrairement au positionnement absolu).</td> 
+                <td class="les_tableux">float prend : right, left, none, inline-start, inline-end.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">border</td> 
+                <td class="les_tableux">border: style ;<br>border : width | style ;<br>border :  style | color ;<br>border : width | style | color ;</td> 
+                <td class="les_tableux">La propriété border en CSS définit la bordure d'un élément. Cette propriété est un raccourci pour les propriétés CSS suivantes : border-color ; border-style ; border-width.</td> 
+                <td class="les_tableux">border prend : width | style | color.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">border-collapse</td> 
+                <td class="les_tableux">border-collapse : ~~ ;</td> 
+                <td class="les_tableux">La propriété border-collapse en CSS définit si les cellules à l'intérieur d'un < table > ont des bordures partagées ou séparées.</td> 
+                <td class="les_tableux">border-collapse prend : collapse ou separate.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">margin</td> 
+                <td class="les_tableux">margin(-~~) : ~~~ ;</td> 
+                <td class="les_tableux">La propriété abrégée margin en CSS définit la zone de marge sur les quatres côtés d'un élément.</td> 
+                <td class="les_tableux">magin prend : (~~ = top, right, bottom, left | ~~~ = ~% ou ~px) et (~~~ = (1 valeur = 4 coins) et (4 valeur = 1 coins par valeur)). </td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">padding</td> 
+                <td class="les_tableux">padding : ~~ ;</td> 
+                <td class="les_tableux">La propriété padding en CSS définit la zone de remplissage sur les quatres côtés d'un élément à la fois.</td> 
+                <td class="les_tableux">padding prend : ~px ou ~%.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">text-align</td> 
+                <td class="les_tableux">text-align : ~~ ;</td> 
+                <td class="les_tableux">La propriété text-align en CSS définit l'alignement horizontal du contenu de niveau en ligne à l'intérieur d'un élément de bloc ou d'une zone de cellule de tableau. Cela signifie qu'il fonctionne comme vertical-align mais horizontalement.</td> 
+                <td class="les_tableux">text-align prend : start, end, left, right,center, justify, justify-all, match-parent.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">clear</td> 
+                <td class="les_tableux">clear : ~~ ;</td> 
+                <td class="les_tableux">La propriété clear en CSS définit si un élément doit être déplacé sous (effacé) les éléments flottants qui le précèdent. La propriété clear s'applique aux éléments flottants et non flottants.</td> 
+                <td class="les_tableux">clear prend : none, left, right, both, inline-start, inline-end.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">font-size</td> 
+                <td class="les_tableux">font-size : ~~ ;</td> 
+                <td class="les_tableux">La propriété font-size en CSS définit la taille de la police d'écriture.</td> 
+                <td class="les_tableux">font-size prend : ~px.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">font-family</td> 
+                <td class="les_tableux">font-family : ~~ ;<br>font-family : ~~, ~~ ;</td> 
+                <td class="les_tableux">La propriété font-family en CSS spécifie une liste prioritaire d'un ou plusieurs noms de famille de polices et/ou noms de famille génériques pour l'élément sélectionné.</td> 
+                <td class="les_tableux">font-family prend des noms de polices d'écriture.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">display</td> 
+                <td class="les_tableux">display: ~~ ;</td> 
+                <td class="les_tableux">La propriété display en CSS définit si un élément est traité comme un bloc ou un élément en ligne et la mise en page utilisée pour ses enfants, comme flow layout, grid ou flex.<br>Formellement, la propriété display définit les types d'affichage interne et externe d'un élément. Le type externe définit la participation d'un élément dans la mise en page du flux ; le type interne définit la disposition des enfants. Certaines valeurs de display sont entièrement définies dans leurs propres spécifications individuelles ; par exemple, le détail de ce qui se passe quand display: flex est déclaré est défini dans la spécification CSS Flexible Box Model.</td> 
+                <td class="les_tableux">display prend : block, inline-block, none, flex, grid.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">height</td> 
+                <td class="les_tableux">height : ~~ ;</td> 
+                <td class="les_tableux">La propriété height en CSS spécifie la hauteur d'un élément. Par défaut, la propriété définit la hauteur de la zone de contenu. Si box-sizing est défini sur border-box, cependant, il détermine à la place la hauteur de la zone de bordure.</td> 
+                <td class="les_tableux">height prend : px, em, %, auto.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">width</td> 
+                <td class="les_tableux">width : ~~ ;</td> 
+                <td class="les_tableux">La propriété width en CSS définit la largeur d'un élément. Par défaut, il définit la largeur de la zone de contenu , mais si box-sizing est défini sur border-box, il définit la largeur de la zone de bordure.</td> 
+                <td class="les_tableux">width prend : px, em, %, auto.</td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">border-radius</td> 
+                <td class="les_tableux">border-radius : ~~px ; <br>
+                                        border-radius : ~~% ~~% ; <br>
+                                        border-radius : ~~% ~~% ~~% ~~% ; <br>
+                                        border-radius : ~~% / ~~% ; <br>
+                                        border-radius : ~~px ~~px / ~~px ; <br>
+                                        border-radius : ~~% ~~% / ~~% ~~% ;</td> 
+                <td class="les_tableux">La propriété border-radius en CSS arrondit les coins du bord extérieur de la bordure d'un élément. Vous pouvez définir un seul rayon pour créer des angles circulaires ou deux rayons pour créer des angles elliptiques.</td> 
+                <td class="les_tableux">border-radius pend : px, em, %. </td> 
+            </tr>
+
+            <tr class="les_tableux"> 
+                <td class="les_tableux">position</td> 
+                <td class="les_tableux">position : ~~ ; <br> autre que vons avec top, teft, right, bottom</td> 
+                <td class="les_tableux">La propriété position en CSS définit la façon dont un élément est positionné dans un document. Les propriétés top, right, bottom et left déterminent l'emplacement final des éléments positionnés.</td> 
+                <td class="les_tableux">position prend : statique, relative, absolue, fixe, collante.</td> 
+            </tr>
+            </table>
+        </div>
+    
+    </div>
+    </div>
+    <audio id="music" src="../musique/Stuck Inside.mp3"></audio>
+    <script>var music = document.getElementById("music"); var musicPlayer = document.getElementById("music-player"); musicPlayer.addEventListener("click", function() {if (music.paused) {music.play();} else {music.pause();}});</script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../js/index.js"></script>
+    <script>music.volume=0.1;</script>
+</body>
+</html>
