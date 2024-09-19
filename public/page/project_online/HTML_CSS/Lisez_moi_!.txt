@@ -1,7 +1,0 @@
-Bonjour, voisi le travaille que j'ai fournie.
-Assurer vous bien d'avoir une conection a internet pour pouvoir aller sur mes pages.
-il y  a trois page cacher elle son cacher dans les page personaliter, lexique, Présantation.
-les scripts en js on été trouver sur différent site internet néenmois je les est poffiner pour que sa rentre dans mon site; les source son sur la page d'accuil
-a plusieur endroit dans le css ou les page html il y a des partie en commentaire sertaine sont utile pour regarder comment sais fais (les border) dotre sont la car j'ai pas fais le ménage
-Le site fonctionne parfaitement en 1920 par 1080, il peux fonctionné a une plus petit résolution mais sertaine page sont buger et je nais pa pris le temp de réglé le probème.
-Bonne visit.
